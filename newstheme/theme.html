@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_themecss}>" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+</head>
+<body>
+  <table cellspacing="0">
+    <tr id="header">
+      <td id="headerlogo"><a href="<{$xoops_url}>/"><img src="<{$xoops_imageurl}>logo.gif" width="150" height="80" alt="" /></a></td>
+      <td id="headerbanner"><{$xoops_banner}></td>
+    </tr>
+    <tr>
+      <td id="headerbar" colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+
+  <table cellspacing="0">
+    <tr>
+      <td id="centercolumn">
+        <!-- Display center blocks if any -->
+        <{if $xoops_showcblock == 1}>
+        <table cellspacing="0">
+		<tr>
+			<td id="centerCcolumn">
+			<!-- Start center-center blocks loop -->
+			<{foreach item=block from=$xoops_ccblocks}>
+<{if $block.title|regex_replace:"/.*none*/":"none" ne "none"}>
+<div class="<{cycle values="blockTitle"}>">
+<{$block.title}></div><{/if}><div class="blockContent">
+<{$block.content}></div>
+<{/foreach}>
+			<!-- End center-center blocks loop -->			</td>
+		</tr>
+        </table>
+        <{/if}>
+        <!-- End display center blocks -->
+        <div id="content">
+          <{$xoops_contents}>        </div>
+        <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+        <table cellspacing="0">
+        <{if $xoBlocks.page_bottomcenter}>
+		<tr><td id="bottomCcolumn">
+			<{foreach from=$xoBlocks.page_bottomcenter item=block}><{include file="newstheme/theme_blockcenter_c.html"}><{/foreach}>
+			</td>
+		</tr>
+		<{/if}>
+		<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>        <{/if}>
+        </table>
+        <{/if}>      </td>
+	  		<td id="centerRcolumn">		
+			<!-- Start center-right blocks loop -->
+			<{foreach item=block from=$xoops_crblocks}>
+<{if $block.title|regex_replace:"/.*none*/":"none" ne "none"}>
+<div class="<{cycle values="blockTitle"}>">
+<{$block.title}></div><{/if}><div class="blockContent">
+<{$block.content}></div>
+<{/foreach}>
+			<!-- End center-right blocks loop -->			</td>
+	  
+	  
+      <td id="leftcolumn">
+	  
+	  <!-- Start left blocks loop -->
+    <{foreach item=block from=$xoops_lblocks}>
+<{if $block.title|regex_replace:"/.*none*/":"none" ne "none"}>
+<div class="<{cycle values="blockTitle"}>">
+<{$block.title}></div><{/if}><div class="blockContent">
+<{$block.content}></div>
+<{/foreach}>
+        <!-- End left blocks loop --></td>
+      <{if $xoops_showrblock == 1}>
+      <td id="rightcolumn">
+        <!-- Start right blocks loop -->
+       <{foreach item=block from=$xoops_rblocks}>
+<{if $block.title|regex_replace:"/.*none*/":"none" ne "none"}>
+<div class="<{cycle values="blockTitle"}>">
+<{$block.title}></div><{/if}><div class="blockContent">
+<{$block.content}></div>
+<{/foreach}>
+        <!-- End right blocks loop -->      </td>
+      <{/if}>    </tr>
+  </table>
+
+  <table cellspacing="0">
+    <tr id="footerbar">
+      <td><a href="http://xoopsexperts.com" target="_blank"><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">Xoops Experts</font></a></td>
+    </tr>
+  </table>
+</body>
+</html>
